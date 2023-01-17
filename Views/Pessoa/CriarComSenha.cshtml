@@ -1,0 +1,21 @@
+@model GestorTarefas.Models.Pessoa
+
+@{
+  ViewData["Title"] = "Criar Pessoa";
+}
+<br>
+<div class="form-group" style="width: 30%">
+  <h1 style="text-align: center;">Criar Pessoa</h1>
+  <hr>
+  <form asp-controller="Pessoa" asp-action="CriarComSenha" method="post">
+    <div class="form-floating mb-3">
+      <input asp-for=@Model.Nome type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label asp-for=@Model.Nome for="floatingInput">Nome</label>
+    </div>
+    <div class="form-floating">
+      <input asp-for=@Model.Senha type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label asp-for=@Model.Senha for="floatingPassword">Senha</label>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Criar</button>
+  </form>
+</div>

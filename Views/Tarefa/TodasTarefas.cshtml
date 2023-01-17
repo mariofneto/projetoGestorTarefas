@@ -1,0 +1,35 @@
+@model IEnumerable<GestorTarefas.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "Todos as Tarefas";
+
+}
+
+<br>
+<h1>Todas as Tarefas</h1>
+<hr>
+@foreach (var item in Model)
+{
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Tarefa: @item.Nome</h5>
+                <form asp-controller="Tarefa" asp-action="MarcaComoFeito" asp-route-id=@item.Id method="post">
+                    <small>
+                        <button type="submit" class="btn btn-info" style="margin-right: 10px;">Feito</button>Criada:
+                        @item.DataCriacao.ToShortDateString()</small>
+                </form>
+            </div>
+            <p class="mb-1">Status: @item.FeitoOuNao</p>
+            <div style="text-align: end;">
+                <a asp-controller="Tarefa" asp-action="Editar" asp-route-id=@item.Id asp-route-nome=@item.Nome
+                class="btn btn-warning">Editar</a>
+                <a asp-controller="Tarefa" asp-action="Deletar" asp-route-id=@item.Id asp-route-nome=@item.Nome
+                class="btn btn-danger">Deletar</a>
+            </div>
+        </a>
+    </div>
+    <br>
+}
+<br>
+<a asp-controller="Pessoa" asp-action="BuscarComSenha" class="btn btn-secondary">Voltar</a>

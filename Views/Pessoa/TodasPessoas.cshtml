@@ -1,0 +1,25 @@
+@model IEnumerable<GestorTarefas.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Todos os Usuários";
+}
+<br>
+<h1>Todos os Usuários</h1>
+<hr>
+<div style="text-align: end;">
+    <a asp-controller="Pessoa" asp-action="CriarComSenha" class="btn btn-success">Criar Pessoa</a>
+    <a asp-controller="Pessoa" asp-action="BuscarComSenha" class="btn btn-info">Buscar Pessoa</a>
+</div>
+<br>
+@foreach (var item in Model)
+{
+    <div style="display: flex;justify-content:center;">
+        <div style="width: 20rem;">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <h6 style="text-align: center;">@item.Id - @item.Nome</h6>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

@@ -1,0 +1,16 @@
+@model GestorTarefas.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Criar Pessoa";
+}
+
+<br>
+<h1>Criar Pessoa</h1>
+<hr>
+<form asp-controller="Pessoa" asp-action="Criar" method="post">
+    <label asp-for="Nome"></label>
+    <input asp-for="Nome" type="text" />
+    <button class="btn btn-primary" type="submit">Criar</button>
+</form>
+<br>
+<a asp-controller="Pessoa" asp-action="TodasPessoas" class="btn btn-secondary">Voltar</a>

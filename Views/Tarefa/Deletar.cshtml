@@ -1,0 +1,13 @@
+@model GestorTarefas.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Deletar Pessoa";
+}
+<br>
+<h1>Deletar Tarefa</h1>
+<hr>
+<h4 style="color: red;">Tem certeza disso?</h4>
+<form asp-controller="Tarefa" asp-action="Deletar" method="post">
+    <button type="submit" class="btn btn-danger">Deletar</button>
+    <a asp-controller="Tarefa" asp-action="TodasTarefas" class="btn btn-secondary">Voltar</a>
+</form>

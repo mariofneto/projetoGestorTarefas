@@ -1,0 +1,30 @@
+@model GestorTarefas.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+<br>
+<br>
+<div style="display: flex; justify-content: center">
+    <div class="card text-white bg-secondary mb-3" style="width: 40rem; text-align: center;">
+        <div class="card-header">
+            <h1>Detalhes</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">Id => @Model.Id</h4>
+            <h4 class="card-text">Nome => @Model.Nome</h4>
+        </div>
+        <div>
+            <a asp-controller="Pessoa" asp-action="Editar" asp-route-id=@Model.Id asp-route-nome=@Model.Nome
+                class="btn btn-warning">Editar Pessoa</a>
+            <a asp-controller="Pessoa" asp-action="Deletar" asp-route-id=@Model.Id asp-route-nome=@Model.Nome
+                class="btn btn-danger"> Deletar
+                Pessoa</a>
+            <a asp-controller="Tarefa" asp-action="Criar" asp-route-id=@Model.Id class="btn btn-success">Criar
+                Tarefa</a>
+            <a asp-controller="Tarefa" asp-action="TodasTarefas" asp-route-id=@Model.Id asp-route-nome=@Model.Nome
+                class="btn btn-info">Todas Tarefas</a>
+            <a asp-controller="Pessoa" asp-action="TodasPessoas" class="btn btn-light">Voltar</a>
+        </div>
+    </div>
+</div>
